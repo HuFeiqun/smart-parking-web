@@ -1,4 +1,31 @@
+
+
 function load_form(){
+
+
+}
+
+function submit_notice() {
+    var title = $("#title").val();
+    var desc = $("#desc").val();
+    var tags = $("#tags").val();
+    console.log(title);
+    console.log(desc);
+    console.log(tags);
+    var warning="";
+    if(title==""){
+        warning="标题不能为空";
+    }
+    else if(desc==""){
+        warning="描述不能为空";
+    }
+    else if(tags==""){
+        warning="标签不能为空";
+    }
+    console.log(title);
+    if(warning!=""){
+        alert(warning);
+    }
 
 
 }
@@ -25,3 +52,4 @@ function selectTag(e) {
     // console.log(element.getAttribute("id"));
 
 }
+

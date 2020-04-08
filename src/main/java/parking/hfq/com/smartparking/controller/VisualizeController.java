@@ -5,8 +5,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import parking.hfq.com.smartparking.mapper.OrderMapper;
-import parking.hfq.com.smartparking.model.Order;
+import parking.hfq.com.smartparking.model.ParkOrder;
+import parking.hfq.com.smartparking.service.OrderService;
 
 import java.util.List;
 
@@ -18,7 +18,7 @@ import java.util.List;
 @Controller
 public class VisualizeController {
     @Autowired
-    private OrderMapper orderMapper;
+    private OrderService orderService;
 
     @GetMapping("/visualize")
     public String visualize(
@@ -28,8 +28,8 @@ public class VisualizeController {
             @RequestParam(name = "size",defaultValue = "12") int size
             ){
         int offset=(page-1)*size;
-        int pageNum = (int) Math.ceil(orderMapper.countOneDayOrders(startDate)*1.0/size);
-        List<Order> orders = orderMapper.listOneDayOrders(startDate,offset,size);
+        int pageNum = (int) Math.ceil(orderService.countOneDayOrders(startDate)*1.0/size);
+        List<ParkOrder> orders = orderService.listOneDayOrders(startDate,offset,size);
 //        List<Order> orders = orderMapper.list();
 //        System.out.println(startDate);
         model.addAttribute("pageNum",pageNum);
