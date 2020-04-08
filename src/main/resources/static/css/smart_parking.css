@@ -1,0 +1,12 @@
+.my_label{
+    cursor: pointer;
+    font-size: 15px;
+}
+
+.active_my_tag{
+    background-color: #8c8c8c;
+}
+
+.inactive_my_tag{
+    background-color: #5bc0de;
+}
