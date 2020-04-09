@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>智慧停车管理系统-测试页面</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="css/smart_parking.css">
+    <script src="js/jquery.js" type="application/javascript"></script>
+    <script src="js/bootstrap.min.js" type="application/javascript"></script>
+    <script src="js/smart_parking.js" type="application/javascript"></script>
+    <script src="js/esmap.min.js" type="application/javascript"></script>
+
+</head>
+
+<body>
+<div id="map-container"> </div>
+<script>
+    var map = new esmap.ESMap({
+        container:document.getElementById('map-container'), //地图显示容器
+        token:"escope"  //打开地图对应的token
+        //mapDataSrc: "data/", //地图数据位置，与推荐目录相同可省略
+        //mapThemeSrc: "data/theme/", //地图主题位置，与推荐目录相同可省略
+    });
+    map.openMapById(10005);
+</script>
+
+</body>
+</html>

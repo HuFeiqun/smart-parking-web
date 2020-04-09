@@ -10,3 +10,34 @@
 .inactive_my_tag{
     background-color: #5bc0de;
 }
+
+.echart_div{
+    width: 350px;
+    height: 350px;
+    background-color: #1d314a
+}
+
+.my_footer{
+    padding: 30px 0 10px;
+    font-size: 12px;
+    text-align: center;
+    color: #666;
+}
+.parkinglot_info_span{
+    display: block;
+    margin: 10px;
+}
+
+.parkinglot_info_item{
+    font-size: 20px;
+    color: #8c8c8c;
+}
+
+.parkinglot_info{
+    color: #0f0f0f;
+}
+
+.map_div {
+    width: 1100px;
+    height: 400px;
+}

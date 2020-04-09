@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>智慧停车管理系统-停车场维护</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="/css/smart_parking.css">
+    <script src="/js/jquery.js" type="application/javascript"></script>
+    <script src="/js/bootstrap.min.js" type="application/javascript"></script>
+    <script src="/js/smart_parking.js" type="application/javascript"></script>
+    <script src="/js/esmap.min.js" type="application/javascript"></script>
+
+</head>
+
+<body>
+<div th:insert="~{navigation :: nav}"></div>
+<div class="container">
+
+    <div class="media">
+        <div class="media-left">
+            <a href="#">
+                <img class="media-object" style="width: 200px"  th:src="${parkinglot.picurl}" alt="...">
+            </a>
+        </div>
+        <div class="media-body">
+            <h2 class="media-heading"><span class="glyphicon glyphicon-map-marker"></span><a th:href="@{'/parkinglot/detail/'+${parkinglot.id}}"><span th:text="${parkinglot.name}">杭州电子科技大学-停车场</span></a></h2>
+            <span class="parkinglot_info_span"><span class="parkinglot_info_item">地点：<span class="parkinglot_info" th:text="${parkinglot.address}"></span></span></span>
+            <span class="parkinglot_info_span"><span class="parkinglot_info_item">总车位：<span th:text="${parkinglot.capacity}"></span></span></span>
+            <span class="parkinglot_info_span"><span class="parkinglot_info_item">可用车位：<span th:text="${parkinglot.available}"></span></span></span>
+        </div>
+        <hr>
+    </div>
+    <button id="btn2D" class="btn btn-default">2D</button>
+    <button id="btn3D" class="btn btn-default">3D</button>
+    <div id="map-container" class="map_div center-block">
+
+    </div>
+    <script>
+        //2维模式
+        $('#btn2D').on('click', function () {
+            map.viewMode = esmap.ESViewMode.MODE_2D;//2维模式
+        });
+
+        //3维模式
+        $('#btn3D').on('click', function () {
+            map.viewMode = esmap.ESViewMode.MODE_3D;; //3维模式
+        });
+
+    </script>
+    <script>
+        var map = new esmap.ESMap({
+            container:document.getElementById('map-container'), //地图显示容器
+            token:"escope"  ,//打开地图对应的token
+            mapDataSrc: "/data/", //地图数据位置，与推荐目录相同可省略
+            mapThemeSrc: "/data/theme/", //地图主题位置，与推荐目录相同可省略
+            defaultScaleLevel: 5,
+            themeID: '2005',
+
+            // focusAlphaMode: true,               //对不可见图层启用透明设置 默认为true
+            // focusAnimateMode: false,            //开启聚焦层切换的动画显示
+            // focusAlpha: 0.1,                    //对不聚焦图层启用透明设置，当focusAlphaMode = true时有效
+            // viewModeAnimateMode: false,         //开启2维，3维切换的动画显示
+            // moveToAnimateMode: false,           //地图定位跳转动画设置
+            // modelSelectedEffect: true,          //支持单击模型高亮，false为单击时模型不高亮
+            // visibleFloors: [1,2,3],             //初始显示楼层
+            // focusFloor: 1,                      //初始聚焦楼层
+            viewMode: esmap.ESViewMode.MODE_3D ,	//初始二维还是三维状态
+            modelLines:true
+        });
+        map.on('mapClickNode', function (e) {
+            console.log(e);
+            // if(e.nodeType==4){
+                alert("你点击了:"+e.data_.name);
+            // }
+
+        });
+        map.openMapById(10005);
+    </script>
+
+</div>
+<div th:insert="~{footer :: foot}"></div>
+</body>
+</html>

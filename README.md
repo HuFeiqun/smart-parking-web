@@ -59,6 +59,26 @@ comment '公告';
 mvn -Dmybatis.generator.overwrite=true mybatis-generator:generate
 
 
+``` sql
+create table parkinglot
+(
+	id int auto_increment,
+	name varchar(100) null,
+	address varchar(100) null,
+	picurl varchar(500) null comment '停车场图片的网址',
+	lng decimal(10,7) not null comment '经度',
+	lat decimal(10,7) null comment '纬度',
+	capacity int null comment '停车场容量',
+	available int null comment '目前可用量',
+	constraint parkinglot_pk
+	primary key (id)
+);
+alter table parkinglot modify picurl varchar(1000) null comment '停车场图片的网址';
+
+
+
+```
+
 引入My
 
 执行select * from order会报错：

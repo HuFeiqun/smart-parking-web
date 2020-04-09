@@ -36,6 +36,7 @@
         <table tableName="notice" domainObjectName="Notice" ></table>
         <table tableName="parkorder" domainObjectName="ParkOrder" ></table>
         <table tableName="user" domainObjectName="User" ></table>
+        <table tableName="parkinglot" domainObjectName="Parkinglot" ></table>
 
 
     </context>

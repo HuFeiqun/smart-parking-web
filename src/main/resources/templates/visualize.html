@@ -5,22 +5,27 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/bootstrap-theme.min.css">
-    <!--<script src="/js/echarts.js" type="application/javascript"></script>-->
-    <!--<script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/echarts-all-3.js"></script>-->
-    <!--<script src="http://echarts.baidu.com/build/dist/echarts.js"></script>-->
+    <link rel="stylesheet" href="css/smart_parking.css">
     <script src="/js/jquery.js" type="application/javascript"></script>
     <script src="/js/echarts.js" type="application/javascript"></script>
     <script src="/js/bootstrap.min.js" type="application/javascript"></script>
     <script src="/js/jquery.pagination.js"></script>
+    <script src="/js/smart_parking.js"></script>
+    <script src="/js/jquery-ui.js"></script>
+
 </head>
 <body>
 <!--https://www.cnblogs.com/sweeeper/p/11957165.html-->
 
 <div th:insert="~{navigation :: nav}"></div>
-<div class="container-fluid">
+<div class="container-fluid" >
     <div class="row">
         <div class="col-lg-8">
-            <h3>历史停车数据</h3>
+            <div>
+
+                <button type="button" class="btn btn-success pull-right" onclick="drawLeftLine()">生成折线图</button>
+                <h3>历史停车数据</h3>
+            </div>
             <div class="panel panel-default">
                 <!-- Default panel contents -->
                 <div class="panel-heading" th:text="${startDate}+' 停车数据'"></div>
@@ -82,14 +87,14 @@
 
         <div class="col-lg-4">
             <h3>可视化</h3>
-            <button type="button" class="btn btn-success pull-right" onclick="submit_notice()">生成折线图</button>
-            <img src="https://img2018.cnblogs.com/blog/712416/201911/712416-20191129131849517-1333294750.png" alt="">
-            <div id="echarts"></div>
+            <!--<img src="https://img2018.cnblogs.com/blog/712416/201911/712416-20191129131849517-1333294750.png" alt="">-->
+            <div id="echart"></div>
 
         </div>
     </div>
 
 </div>
 </div>
+<div th:insert="~{footer :: foot}"></div>
 </body>
 </html>

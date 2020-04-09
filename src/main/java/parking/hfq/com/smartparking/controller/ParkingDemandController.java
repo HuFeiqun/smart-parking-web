@@ -15,4 +15,9 @@ public class ParkingDemandController {
     public String parkingDemand(){
         return "/parkingDemand";
     }
+
+    @GetMapping("/test")
+    public String test(){
+        return "test";
+    }
 }
