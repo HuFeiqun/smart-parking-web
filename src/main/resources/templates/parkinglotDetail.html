@@ -22,22 +22,35 @@
     <div class="media">
         <div class="media-left">
             <a href="#">
-                <img class="media-object" style="width: 200px"  th:src="${parkinglot.picurl}" alt="...">
+                <img class="media-object" style="width: 200px" th:src="${parkinglot.picurl}" alt="...">
             </a>
         </div>
         <div class="media-body">
-            <h2 class="media-heading"><span class="glyphicon glyphicon-map-marker"></span><a th:href="@{'/parkinglot/detail/'+${parkinglot.id}}"><span th:text="${parkinglot.name}">杭州电子科技大学-停车场</span></a></h2>
-            <span class="parkinglot_info_span"><span class="parkinglot_info_item">地点：<span class="parkinglot_info" th:text="${parkinglot.address}"></span></span></span>
-            <span class="parkinglot_info_span"><span class="parkinglot_info_item">总车位：<span th:text="${parkinglot.capacity}"></span></span></span>
-            <span class="parkinglot_info_span"><span class="parkinglot_info_item">可用车位：<span th:text="${parkinglot.available}"></span></span></span>
+            <h2 class="media-heading"><span class="glyphicon glyphicon-map-marker"></span><a
+                    th:href="@{'/parkinglot/detail/'+${parkinglot.id}}"><span
+                    th:text="${parkinglot.name}">杭州电子科技大学-停车场</span></a></h2>
+            <span class="parkinglot_info_span"><span class="parkinglot_info_item">地点：<span class="parkinglot_info"
+                                                                                           th:text="${parkinglot.address}"></span></span></span>
+            <span class="parkinglot_info_span"><span class="parkinglot_info_item">总车位：<span
+                    th:text="${parkinglot.capacity}"></span></span></span>
+            <span class="parkinglot_info_span"><span class="parkinglot_info_item">可用车位：<span
+                    th:text="${parkinglot.available}"></span></span></span>
         </div>
         <hr>
     </div>
-    <button id="btn2D" class="btn btn-default">2D</button>
-    <button id="btn3D" class="btn btn-default">3D</button>
-    <div id="map-container" class="map_div center-block">
 
+    <!--<button id="btn2D" class="btn btn-default">2D</button>-->
+    <!--<button id="btn3D" class="btn btn-default">3D</button>-->
+    <div>
+        车位情况：<span id="spaceIsInUse"></span>
     </div>
+    <div class="codition fix">
+            <span class="codition-red"></span>占用车位 <br>
+            <span class="codition-green"></span>空闲车位</li>
+            <!--<li><span class="codition-third"></span>固定车位</li>-->
+    </div>
+
+    <div id="map-container" class="map_div center-block"></div>
     <script>
         //2维模式
         $('#btn2D').on('click', function () {
@@ -46,14 +59,15 @@
 
         //3维模式
         $('#btn3D').on('click', function () {
-            map.viewMode = esmap.ESViewMode.MODE_3D;; //3维模式
+            map.viewMode = esmap.ESViewMode.MODE_3D;
+            ; //3维模式
         });
 
     </script>
     <script>
         var map = new esmap.ESMap({
-            container:document.getElementById('map-container'), //地图显示容器
-            token:"escope"  ,//打开地图对应的token
+            container: document.getElementById('map-container'), //地图显示容器
+            token: "escope",//打开地图对应的token
             mapDataSrc: "/data/", //地图数据位置，与推荐目录相同可省略
             mapThemeSrc: "/data/theme/", //地图主题位置，与推荐目录相同可省略
             defaultScaleLevel: 5,
@@ -67,20 +81,23 @@
             // modelSelectedEffect: true,          //支持单击模型高亮，false为单击时模型不高亮
             // visibleFloors: [1,2,3],             //初始显示楼层
             // focusFloor: 1,                      //初始聚焦楼层
-            viewMode: esmap.ESViewMode.MODE_3D ,	//初始二维还是三维状态
-            modelLines:true
+            viewMode: esmap.ESViewMode.MODE_3D,	//初始二维还是三维状态
+            defaultAngle: 150
         });
-        map.on('mapClickNode', function (e) {
-            console.log(e);
-            // if(e.nodeType==4){
-                alert("你点击了:"+e.data_.name);
-            // }
 
+        map.on('loadComplete', function () {  //地图加载完成后修改车位颜色
+            loadSpace();
+        });
+
+        map.on('mapClickNode', function (e) {
+            clickParkingSpace(e);
         });
         map.openMapById(10005);
+
     </script>
 
 </div>
+<br>
 <div th:insert="~{footer :: foot}"></div>
 </body>
 </html>

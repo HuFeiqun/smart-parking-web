@@ -37,6 +37,7 @@
         <table tableName="parkorder" domainObjectName="ParkOrder" ></table>
         <table tableName="user" domainObjectName="User" ></table>
         <table tableName="parkinglot" domainObjectName="Parkinglot" ></table>
+        <table tableName="parking_space" domainObjectName="ParkingSpace" ></table>
 
 
     </context>

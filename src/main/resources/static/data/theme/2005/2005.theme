@@ -1,13 +1,13 @@
 ﻿{
   "mapstyle": {
-    "clearcolor": "225,231,235",
+    "clearcolor": "#001326",
     "cleartransparent": "0.0"
   },
   "floorstyle": [
     {
       "floornum": "0",
       "baseheight": "0.1",
-      "color": "240,240,240",
+      "color": "#466890",
       "transparent": "0"
     },
     {
