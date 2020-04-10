@@ -17,37 +17,46 @@
 
 <body>
 <div th:insert="~{navigation :: nav}"></div>
-<div class="container">
+<div class="container-fluid">
 
-    <div class="media">
-        <div class="media-left">
-            <a href="#">
-                <img class="media-object" style="width: 200px" th:src="${parkinglot.picurl}" alt="...">
-            </a>
-        </div>
-        <div class="media-body">
-            <h2 class="media-heading"><span class="glyphicon glyphicon-map-marker"></span><a
-                    th:href="@{'/parkinglot/detail/'+${parkinglot.id}}"><span
-                    th:text="${parkinglot.name}">杭州电子科技大学-停车场</span></a></h2>
-            <span class="parkinglot_info_span"><span class="parkinglot_info_item">地点：<span class="parkinglot_info"
-                                                                                           th:text="${parkinglot.address}"></span></span></span>
-            <span class="parkinglot_info_span"><span class="parkinglot_info_item">总车位：<span
-                    th:text="${parkinglot.capacity}"></span></span></span>
-            <span class="parkinglot_info_span"><span class="parkinglot_info_item">可用车位：<span
-                    th:text="${parkinglot.available}"></span></span></span>
-        </div>
-        <hr>
-    </div>
+ <div class="row">
+     <div class="media col-lg-6 ">
+         <div class="media-left">
+             <a href="#">
+                 <img class="media-object" style="width: 200px" th:src="${parkinglot.picurl}" alt="...">
+             </a>
+         </div>
+         <div class="media-body">
+             <h2 class="media-heading"><span class="glyphicon glyphicon-map-marker"></span><a
+                     th:href="@{'/parkinglot/detail/'+${parkinglot.id}}"><span
+                     th:text="${parkinglot.name}">杭州电子科技大学-停车场</span></a></h2>
+             <span class="parkinglot_info_span"><span class="parkinglot_info_item">地点：<span class="parkinglot_info"
+                                                                                            th:text="${parkinglot.address}"></span></span></span>
+             <span class="parkinglot_info_span"><span class="parkinglot_info_item">总车位：<span
+                     th:text="${parkinglot.capacity}"></span></span></span>
+             <span class="parkinglot_info_span"><span class="parkinglot_info_item">可用车位：<span
+                     th:text="${parkinglot.available}"></span></span></span>
+         </div>
+     </div>
+
+     <div class="col-lg-3">
+        五分钟前，浙A66666进入停车场，车位：1000。
+     </div>
+
+     <div class="col-lg-3">
+         两秒钟前，浙A66666离开停车场。
+     </div>
+ </div><hr>
 
     <!--<button id="btn2D" class="btn btn-default">2D</button>-->
     <!--<button id="btn3D" class="btn btn-default">3D</button>-->
     <div>
-        车位情况：<span id="spaceIsInUse"></span>
+        <span id="spaceIsInUse"></span>
     </div>
     <div class="codition fix">
-            <span class="codition-red"></span>占用车位 <br>
-            <span class="codition-green"></span>空闲车位</li>
-            <!--<li><span class="codition-third"></span>固定车位</li>-->
+        <span class="codition-red"></span>占用车位 <br>
+        <span class="codition-green"></span>空闲车位</li>
+        <!--<li><span class="codition-third"></span>固定车位</li>-->
     </div>
 
     <div id="map-container" class="map_div center-block"></div>
