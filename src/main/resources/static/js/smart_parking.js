@@ -62,10 +62,10 @@ function clickParkingSpace(e) {
             $.each(spaceList,function(i,space){
                 console.log(i, space);
                 if(space.inUse==1){
-                    $("#spaceIsInUse").text(space.id+"使用中,"+space.carId);
+                    $("#spaceIsInUse").text("车位情况：车位"+space.id+"使用中,"+space.carId+"。");
                 }
                 else {
-                    $("#spaceIsInUse").text(space.id+"空闲");
+                    $("#spaceIsInUse").text("车位情况：车位"+space.id+"空闲。");
                 }
             });
         });
