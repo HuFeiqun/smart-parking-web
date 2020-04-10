@@ -2,21 +2,20 @@
  * 当地图加载完成时，设置停车位的颜色
  */
 function loadSpace() {
-    var inUseNameList = new Array();
-    var notInUseNameList = new Array();
-    var pathname = window.location.pathname; //如"/parkinglot/detail/1"，这里有bug，当数字大于1位就不行了
-    var parkinglot_id = pathname.charAt(pathname.length-1);
+    var inUseNameList = new Array();            //保存全部的占用车位的name，与地图车位图标的name属性对应
+    var inUseNameList = new Array();   //全部的占用车位对应的地图车位图标的name属性数组
+    var notInUseNameList = new Array(); //全部的空闲车位对应的地图车位图标的name属性数组    var parkinglot_id = pathname.charAt(pathname.length-1);
     console.log(pathname);
     $.ajax({
         method: "POST",
         url: "/parkinglot/"+parkinglot_id+"/space",
     })
         .done(function( spaceList ) {
-            // console.log(spaceList);   //spaces为全体车位信息
+            // console.log(spaceList);              //打印全部车位信息
             $.each(spaceList,function(i,space){
                 // console.log(i, space);
                 var spaceName = "车位"+space.id;
-                if(space.inUse==1){ //表示车位被使用了
+                if(space.inUse==1){                 //表示车位被使用了
                     inUseNameList.push(spaceName);
                 }else {
                     notInUseNameList.push(spaceName);

@@ -20,9 +20,27 @@
 <script>
     var map = new esmap.ESMap({
         container:document.getElementById('map-container'), //地图显示容器
-        token:"escope"  //打开地图对应的token
+        token:"escope" , //打开地图对应的token
+        themeID: '2005',
         //mapDataSrc: "data/", //地图数据位置，与推荐目录相同可省略
         //mapThemeSrc: "data/theme/", //地图主题位置，与推荐目录相同可省略
+        container: document.getElementById('map-container'), //地图显示容器
+        token: "escope",//打开地图对应的token
+        mapDataSrc: "/data/", //地图数据位置，与推荐目录相同可省略
+        mapThemeSrc: "/data/theme/", //地图主题位置，与推荐目录相同可省略
+        defaultScaleLevel: 5,
+        themeID: '2005',
+
+        focusAlphaMode: true,               //对不可见图层启用透明设置 默认为true
+        // focusAnimateMode: false,            //开启聚焦层切换的动画显示
+        // focusAlpha: 0.1,                    //对不聚焦图层启用透明设置，当focusAlphaMode = true时有效
+        // viewModeAnimateMode: false,         //开启2维，3维切换的动画显示
+        // moveToAnimateMode: false,           //地图定位跳转动画设置
+        // modelSelectedEffect: true,          //支持单击模型高亮，false为单击时模型不高亮
+        // visibleFloors: [1,2,3],             //初始显示楼层
+        // focusFloor: 1,                      //初始聚焦楼层
+        viewMode: esmap.ESViewMode.MODE_3D,	//初始二维还是三维状态
+        defaultAngle: 150
     });
     map.openMapById(10005);
 </script>

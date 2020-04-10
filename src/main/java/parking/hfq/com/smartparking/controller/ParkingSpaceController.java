@@ -22,8 +22,6 @@ public class ParkingSpaceController {
     @Autowired
     private ParkingSpaceMapper parkingSpaceMapper;
 
-    //
-
     /**
      *
      * @param parkinglot_id 停车场ID
@@ -37,8 +35,6 @@ public class ParkingSpaceController {
     private Object selectAllSpace(@PathVariable(name = "parkinglot_id") Integer parkinglot_id,
                                   @RequestParam(name = "parking_space_id",required = false) Integer parking_space_id
                                   ){
-
-//        System.out.println(parking_space_id);
         ParkingSpaceExample example = new ParkingSpaceExample();
         if(parking_space_id!=null){
             example.createCriteria()
@@ -52,8 +48,4 @@ public class ParkingSpaceController {
         List<ParkingSpace> parkingSpaces = parkingSpaceMapper.selectByExample(example);
         return parkingSpaces;
     }
-
-
-
-
 }
