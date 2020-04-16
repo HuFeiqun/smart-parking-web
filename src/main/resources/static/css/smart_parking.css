@@ -70,5 +70,51 @@
     background-color: #0f0;
 }
 
+.small-media-object{
+    width: 40px;
+    height: 40px;
+}
+.inner_comments_box{
+    margin: 10px 0px;
+    padding-top:10px;
+    border:1px solid #eee;
+    border-radius: 5px;
+}
 
+.inner_comment_dialog_box{
+    /*background-color: #8c8c8c;*/
+}
 
+.inner_comment_dialog_box .btn{
+    margin: 10px 0px;
+}
+
+.comment_operate_menu .my_icon{
+    font-size: 20px;
+    margin-right: 5px;
+    color: #999999;
+    cursor: pointer;
+}
+.comment_operate_menu .my_icon:hover{
+    color: #499ef3;
+    /*background-color:#66afe9;*/
+}
+.comment_operate_menu .active{
+    color: #499ef3;
+    /*background-color:#66afe9;*/
+}
+.custom_hr{
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.notice_info{
+    font-size: 15px;
+    font-weight: normal;
+    color: #999;
+    /*float: right;*/
+}
+.notice_desc{
+    font-size: 16px;
+    font-weight: bolder;
+}

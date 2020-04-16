@@ -31,8 +31,8 @@
                     <input type="text" class="form-control" id="title" name="title" placeholder="公告标题（15字以内）">
                 </div>
                 <div class="form-group">
-                    <label for="desc">公告详情：</label>
-                    <textarea class="form-control" name="desc" id="desc" cols="30" rows="10"
+                    <label for="description">公告详情：</label>
+                    <textarea class="form-control" name="description" id="description" cols="30" rows="10"
                               placeholder="公告详情（140字以内）"></textarea>
                     <!--<textarea type="text" class="form-control" id="title" name="title" placeholder="公告详情（140字以内）">-->
                 </div>
@@ -50,6 +50,19 @@
                         <span class="label label-info my_label " onclick="selectTag(this)" id="tag4">测试</span>&nbsp;&nbsp;&nbsp;
                     </div>
                 </div>
+                <!--<hr>-->
+                <label for="parkinglots">公告对象：</label>
+                <div id="parkinglots">
+                    <label class="checkbox-inline">
+                        <input type="checkbox" id="inlineCheckbox1" value="option1"> 西湖风景区停车场
+                    </label>
+                    <label class="checkbox-inline">
+                        <input type="checkbox" id="inlineCheckbox2" value="option2"> 浙江传媒学院停车场(文泽路)
+                    </label>
+                    <label class="checkbox-inline">
+                        <input type="checkbox" id="inlineCheckbox3" value="option3"> 杭州电子科技大学-地下停车场
+                    </label>
+                </div>
 
                 <button type="button" class="btn btn-success pull-right" onclick="submit_notice()">发布公告</button>
 
@@ -62,7 +75,6 @@
             <br><br>
             注：成功发布的公告将发送给全体已预约本停车场的用户。
         </div>
-
     </div>
 </div>
 <div th:insert="~{footer :: foot}"></div>

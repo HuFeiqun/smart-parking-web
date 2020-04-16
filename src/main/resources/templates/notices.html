@@ -1,0 +1,25 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>全部公告</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/bootstrap-theme.min.css">
+    <script src="js/jquery.js" type="application/javascript"></script>
+    <script src="js/bootstrap.min.js" type="application/javascript"></script>
+</head>
+
+<body>
+<div th:insert="~{navigation :: nav}"></div>
+<div class="container">
+    <div>
+        <h2>全部公告</h2>
+        <div th:each="notice : ${noticeList}">
+            <div>
+                <h4><a th:href="@{'/noticeDetail/'+${notice.id}}"><span th:text="${notice.title}"></span></a></h4>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
